@@ -7,9 +7,9 @@ module.exports = {
     devtool: 'inline-source-map',
         module: {
         preLoaders: [
-            { exclude: /node_modules/, loader: 'tslint', test: /\.ts$/ }
+            { exclude: /node_modules/, rules: 'tslint', test: /\.ts$/ }
         ],
-        loaders: [
+        rules: [
             { loader: 'raw', test: /\.(css|html)$/ },
             { exclude: /node_modules/, loader: 'ts', test: /\.ts$/ }
         ]
