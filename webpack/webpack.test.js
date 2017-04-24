@@ -5,22 +5,39 @@ const webpack = require('webpack');
 
 module.exports = {
     devtool: 'inline-source-map',
-        module: {
-        preLoaders: [
-            { exclude: /node_modules/, rules: 'tslint', test: /\.ts$/ }
-        ],
+    module: {
         rules: [
-            { loader: 'raw', test: /\.(css|html)$/ },
-            { exclude: /node_modules/, loader: 'ts', test: /\.ts$/ }
+            {
+                exclude: /node_modules/,
+                loader: 'tslint',
+                test: /\.ts$/
+            },
+
+            {
+                loader: 'raw',
+                test: /\.(css|html)$/,
+                exclude: /node_modules/, 
+                loader: 'ts', test: /\.ts$/
+            }
         ]
     },
 
-        resolve: {
-        extensions: ['', '.js', '.ts'],
-        modulesDirectories: ['node_modules'],
-        root: path.resolve('.', 'src')
+    resolve: {
+          extensions: ['*', '.js', '.ts'],
+          moduleExtensions: ["-loader"],
+          alias:{
+              mydir: path.resolve('.', 'src')
+            }
     },
-        tslint: {
-        emitErrors: true
-    }
+
+    plugins: [
+        new webpack.LoaderOptionsPlugin({
+            options: {
+                tslint: {
+                    emitErrors: true,
+                    failOnHint: true
+                }
+            }
+        })
+    ]
 };

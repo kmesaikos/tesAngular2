@@ -3,10 +3,10 @@
 module.exports = config => {
     config.set({
         autoWatch: true,
-        browsers: ['Chrome', 'PhantomJS'],
+        browsers: ['Chrome'],
         files: [
             '../node_modules/es6-shim/es6-shim.min.js',
-            'karma.entry.js'
+            './karma.entry.js'
         ],
         frameworks: ['jasmine'],
         logLevel: config.LOG_INFO,
