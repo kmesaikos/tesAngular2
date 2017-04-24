@@ -1,12 +1,5 @@
-import {
-    TestBed
-} from '@angular/core/testing';
-
-import {
-    FormGroup,
-    ReactiveFormsModule
-} from '@angular/forms';
-
+import {TestBed} from '@angular/core/testing';
+import {FormGroup, ReactiveFormsModule} from '@angular/forms';
 import { DynamicFormComponent } from './dynamic-form.component';
 import { DynamicQuestionComponent } from '../dynamic-question/dynamic-question.component';
 
