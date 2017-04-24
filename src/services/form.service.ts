@@ -1,7 +1,6 @@
 import { FormData } from './../models/form-data.model';
-import { BehaviorSubject } from "rxjs/BehaviorSubject";
 export class FormService {
-    forms = new BehaviorSubject<Array<FormData>>([]);
+    private forms: Array<FormData> = [];
 
     getAllForms(){
         return this.forms;
