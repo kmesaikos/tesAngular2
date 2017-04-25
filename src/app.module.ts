@@ -1,3 +1,4 @@
+import { FormService } from './services/form.service';
 import { AppComponent } from './components/app/app.component';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -17,7 +18,7 @@ import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.com
         ReactiveFormsModule
     ],
     providers: [
-        
+        FormService        
     ]
 })
 export class AppModule {}

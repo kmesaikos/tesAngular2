@@ -1,4 +1,9 @@
 import { FormData } from './../models/form-data.model';
+import { Injectable } from '@angular/core';
+
+
+@Injectable()
+
 export class FormService {
     private forms: Array<FormData> = [];
 
