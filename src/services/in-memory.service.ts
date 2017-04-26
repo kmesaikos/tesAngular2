@@ -1,6 +1,6 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 
-export class FauxFormsService implements InMemoryDbService {
+export class FakeFormsService implements InMemoryDbService {
     createDb() {
         const forms = [
             {

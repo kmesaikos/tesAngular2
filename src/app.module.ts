@@ -1,3 +1,4 @@
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { RestService } from './services/rest.service';
 import { FormService } from './services/form.service';
 import { AppComponent } from './components/app/app.component';
@@ -7,6 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { DynamicQuestionComponent } from './components/dynamic-question/dynamic-question.component';
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { HttpModule } from "@angular/http";
+import { FakeFormsService } from "./services/in-memory.service";
 
 @NgModule({
     bootstrap: [ AppComponent ],
@@ -18,11 +20,12 @@ import { HttpModule } from "@angular/http";
     imports: [
         BrowserModule,
         ReactiveFormsModule,
-        HttpModule
+        HttpModule,
+        InMemoryWebApiModule.forRoot(FakeFormsService)
     ],
     providers: [
         FormService,
-        RestService        
+        RestService
     ]
 })
 export class AppModule {}

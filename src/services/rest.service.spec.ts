@@ -41,37 +41,38 @@ describe('Service: RestService', () => {
             }
         });
     }
- it('should return the lists of forms from the server on success', () => {
-     setupConnections(backend, {
-         body: [
-             {
-                 id: 1,
-                 questions: [],
-                 title: 'Motorbikes'
-             },
-             {
-                 id: 4,
-                 questions: [],
-                 title: 'Cars'
-             },
-             {
-                 id: 2,
-                 questions: [],
-                 title: 'Women'
-             }
-         ],
-         status: 200
-     });
-     service.getForms().subscribe((data: FormData[]) => {
-         expect(data.length).toBe(3);
-         expect(data[0].title).toBe('MotorBikes');
-         expect(data[0].title).toBe('Cars');
-         expect(data[0].title).toBe('Women');
-     });
+    it('should return the lists of forms from the server on success', () => {
+        setupConnections(backend, {
+            body: [
+                {
+                    id: 1,
+                    questions: [],
+                    title: 'Motorbikes'
+                },
+                {
+                    id: 4,
+                    questions: [],
+                    title: 'Cars'
+                },
+                {
+                    id: 2,
+                    questions: [],
+                    title: 'Women'
+                }
+            ],
+            status: 200
+        });
+        service.getForms().subscribe((data: any) => {
+            expect(data.length).toBe(3);
+            expect(data[0].title).toBe('MotorBikes');
+            expect(data[0].title).toBe('Cars');
+            expect(data[0].title).toBe('Women');
+        });
+    });
 
     it('should log error to the console', () => {
         setupConnections(backend, {
-            body: {error: `error error`},
+            body: { error: `error error` },
             status: 500
         });
         spyOn(console, 'error');
@@ -80,6 +81,6 @@ describe('Service: RestService', () => {
             expect(console.error).toHaveBeenCalledWith(`error error`);
         });
     });
- });
+});
 
 
