@@ -14,7 +14,6 @@ export class AppComponent {
     constructor(private formService: FormService, private restService: RestService) {
         restService.getForms().subscribe((forms: FormData[]) => {
             this.formService.setForms(forms);
-        
         });
     }
 }

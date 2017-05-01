@@ -13,10 +13,11 @@ export class FormListComponent {
     forms: Array<FormData> = [];
     
     constructor(private formService: FormService, private router: Router) {
-        this.formService.forms.subscribe((forms) => this.forms = forms);
+        this.formService.forms
+            .subscribe((forms) => this.forms = forms);
      }
 
     displayForm(id: number) {
-        this.router.navigateByUrl(`/form/$[id]`);
+        this.router.navigateByUrl(`/form/${id}`);
     }
 }

@@ -8,11 +8,11 @@ export class FakeFormsService implements InMemoryDbService {
                 questions: [
                     {
                         controlType: 'radio',
-                        id: 'like',
+                        id: 'answer',
                         label: 'Do you like motorcycles?',
                         options: [
-                            { label: 'Yes', value: 1 },
-                            { label: 'of course', value: 2 }
+                            { label: 'Yes', value: 'yes' },
+                            { label: 'No', value: 'no' }
                         ],
                         required: true
                     },
@@ -22,17 +22,17 @@ export class FakeFormsService implements InMemoryDbService {
                         id: 'type',
                         label: 'What type of motorcycles do you like?',
                         options: [
-                            { label: '', value: 'street' },
-                            { label: 'sportbike1', value: 'sportbike' },
-                            { label: 'touring2', value: 'touring' },
-                            { label: 'sport-touring3', value: 'sport-touring' },
+                            { label: 'street', value: 'street' },
+                            { label: 'sportbike', value: 'sportbike' },
+                            { label: 'touring', value: 'touring' },
+                            { label: 'sport-touring', value: 'sport-touring' },
                         ],
                         required: false
                     },
                     {
                         controlType: 'textarea',
-                        id: 'more',
-                        label: 'Gives us your thoughts on pizza:',
+                        id: 'topSpeed',
+                        label: 'What was the top speed on your bike:',
                         required: false
                     }
                 ],
@@ -43,25 +43,24 @@ export class FakeFormsService implements InMemoryDbService {
                 questions: [
                     {
                         controlType: 'select',
-                        id: 'delicious',
-                        label: 'What is the best cheese for a burger?',
+                        id: 'type',
+                        label: 'What is a best woman for you?',
                         options: [
-                            { label: '', value: 'no-cheese' },
-                            { label: 'American', value: 'american' },
-                            { label: 'Cheddar', value: 'cheddar' },
-                            { label: 'Provolone', value: 'provolone' },
-                            { label: 'Swiss', value: 'swiss' }
+                            { label: 'clever', value: 'clever' },
+                            { label: 'beautiful', value: 'beautiful' },
+                            { label: 'social', value: 'social' },
+                            { label: 'carrier Woman', value: 'carrierWoman' }
                         ],
                         required: true
                     },
                     {
                         controlType: 'textarea',
-                        id: 'perfection',
-                        label: 'Describe your perfect burger:',
+                        id: 'choice',
+                        label: 'Tell us the name of your best choice:',
                         required: true
                     }
                 ],
-                title: 'Burger Bonanza'
+                title: 'Women'
             }
         ];
 

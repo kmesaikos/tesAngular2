@@ -1,5 +1,4 @@
 import { FormListComponent } from './components/form-list/form-list.component';
-// import { FormViewerComponent } from './components/form-viewer/form-viewer.component';
 import { AppRoutingModule } from './app-routing.module';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { RestService } from './services/rest.service';
@@ -12,6 +11,7 @@ import { DynamicQuestionComponent } from './components/dynamic-question/dynamic-
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { HttpModule } from "@angular/http";
 import { FakeFormsService } from "./services/in-memory.service";
+import { FormViewerComponent } from "./components/form-viewer/form-viewer.component";
 
 @NgModule({
     bootstrap: [ AppComponent ],
@@ -19,8 +19,8 @@ import { FakeFormsService } from "./services/in-memory.service";
         AppComponent,
         DynamicFormComponent,
         DynamicQuestionComponent,
-        FormListComponent
-        // FormViewerComponent
+        FormListComponent,
+        FormViewerComponent
     ],
     imports: [
         BrowserModule,
