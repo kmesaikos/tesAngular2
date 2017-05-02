@@ -4,7 +4,7 @@ import { DynamicFormComponent } from './../dynamic-form/dynamic-form.component';
 import { TestBed } from '@angular/core/testing';
 import { async } from '@angular/core/testing';
 import { FormService } from "../../services/form.service";
-import { ActivatedRoute } from "@angular/router/router";
+import { ActivatedRoute } from "@angular/router";
 import { inject } from "@angular/core/testing";
 import { MockActivatedRoute } from "../../mocks/activated-route";
 import { FormViewerComponent } from "./form-viewer.component";

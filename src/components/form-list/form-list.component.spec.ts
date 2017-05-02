@@ -1,8 +1,8 @@
 import { TestBed, async } from '@angular/core/testing';
-import { Router } from "@angular/router/src";
 import { inject } from "@angular/core/testing";
 import { FormListComponent } from "./form-list.component";
 import { FormService } from "../../services/form.service";
+import { Router } from "@angular/router";
 
 
 class MockRouter {

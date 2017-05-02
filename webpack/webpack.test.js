@@ -2,42 +2,39 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const rootDir = path.resolve(__dirname, '..');
 
 module.exports = {
     devtool: 'inline-source-map',
+
+    resolve: {
+        extensions: ['.js', '.ts'],
+    },
+
     module: {
         rules: [
             {
-                exclude: /node_modules/,
-                loader: 'tslint',
-                test: /\.ts$/
-            },
-
+                test: /\.ts$/,
+                loaders: 
+                    {
+                        loader: 'awesome-typescript-loader',
+                        options: path.resolve(rootDir, 'tsconfig.json')
+                    }
+            },   
             {
-                loader: 'raw',
-                test: /\.(css|html)$/,
-                exclude: /node_modules/, 
-                loader: 'ts', test: /\.ts$/
+                test: /\.css$/,
+                exclude: [/node_modules/, /\.(spec)\.js$/],
+
+                exclude: path.resolve(rootDir, 'src'),
+                loader: 'null-loader'
+            },
+            {
+                test: /\.css$/,
+                exclude: [/node_modules/, /\.(spec)\.js$/],
+
+                include: path.resolve(rootDir, 'src'),
+                loader: 'raw-loader'
             }
         ]
     },
-
-    resolve: {
-          extensions: ['*', '.js', '.ts'],
-          moduleExtensions: ["-loader"],
-          alias:{
-              mydir: path.resolve('.', 'src')
-            }
-    },
-
-    plugins: [
-        new webpack.LoaderOptionsPlugin({
-            options: {
-                tslint: {
-                    emitErrors: true,
-                    failOnHint: true
-                }
-            }
-        })
-    ]
 };
