@@ -30,6 +30,7 @@ describe('Service: RestService', () => {
         const testbed = getTestBed();
         backend = testbed.get(MockBackend);
         service = testbed.get(RestService);
+
     }));
 
     function setupConnections(backend: MockBackend, options: any) {
@@ -37,50 +38,53 @@ describe('Service: RestService', () => {
             if (connection.request.url === 'api/forms') {
                 const responseOptions = new ResponseOptions(options);
                 const response = new Response(responseOptions);
+
                 connection.mockRespond(response);
             }
         });
     }
-    it('should return the lists of forms from the server on success', () => {
+
+    it('should return the list of forms from the server on success', () => {
         setupConnections(backend, {
-            body: [
-                {
-                    id: 1,
-                    questions: [],
-                    title: 'Motorbikes'
-                },
-                {
-                    id: 4,
-                    questions: [],
-                    title: 'Cars'
-                },
-                {
-                    id: 2,
-                    questions: [],
-                    title: 'Women'
-                }
-            ],
+            body: {
+                data: [
+                    {
+                        id: 1,
+                        questions: [],
+                        title: 'Pizza'
+                    },
+                    {
+                        id: 4,
+                        questions: [],
+                        title: 'Burrito'
+                    },
+                    {
+                        id: 2,
+                        questions: [],
+                        title: 'Cheeseburger'
+                    }
+                ]
+            },
             status: 200
         });
-        service.getForms().subscribe((data: any) => {
+
+        service.getForms().subscribe((data: FormData[]) => {
             expect(data.length).toBe(3);
-            expect(data[0].title).toBe('MotorBikes');
-            expect(data[0].title).toBe('Cars');
-            expect(data[0].title).toBe('Women');
+            expect(data[0].title).toBe('Pizza');
+            expect(data[1].title).toBe('Burrito');
+            expect(data[2].title).toBe('Cheeseburger');
         });
     });
 
-    it('should log error to the console', () => {
+    it('should log an error to the console on error', () => {
         setupConnections(backend, {
-            body: { error: `error error` },
+            body: { error: `I'm afraid I've got some bad news!` },
             status: 500
         });
         spyOn(console, 'error');
 
         service.getForms().subscribe(null, () => {
-            expect(console.error).toHaveBeenCalledWith(`error error`);
+            expect(console.error).toHaveBeenCalledWith(`I'm afraid I've got some bad news!`);
         });
     });
 });
-
-

@@ -12,6 +12,7 @@ import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.com
 import { HttpModule } from "@angular/http";
 import { FakeFormsService } from "./services/in-memory.service";
 import { FormViewerComponent } from "./components/form-viewer/form-viewer.component";
+import { provideRoutes} from '@angular/router';
 
 @NgModule({
     bootstrap: [ AppComponent ],

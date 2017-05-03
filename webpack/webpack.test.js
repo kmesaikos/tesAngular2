@@ -15,12 +15,17 @@ module.exports = {
         rules: [
             {
                 test: /\.ts$/,
-                loaders: 
-                    {
-                        loader: 'awesome-typescript-loader',
-                        options: path.resolve(rootDir, 'tsconfig.json')
-                    }
-            },   
+                loaders:
+                {
+                    loader: 'awesome-typescript-loader',
+                    options: path.resolve(rootDir, 'tsconfig.json')
+                }
+            },
+            {
+                test: /\.html$/,
+                loader: 'html-loader'
+
+            },
             {
                 test: /\.css$/,
                 exclude: [/node_modules/, /\.(spec)\.js$/],

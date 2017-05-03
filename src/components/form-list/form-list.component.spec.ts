@@ -3,7 +3,7 @@ import { inject } from "@angular/core/testing";
 import { FormListComponent } from "./form-list.component";
 import { FormService } from "../../services/form.service";
 import { Router } from "@angular/router";
-
+import { RouterTestingModule } from '@angular/router/testing';
 
 class MockRouter {
     navigateByUrl(url: string) { return url; }
@@ -21,6 +21,7 @@ describe('Component: FormListComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [FormListComponent],
+            imports: [RouterTestingModule],
             providers: [
                 { provide: Router, useClass: MockRouter },
                 { provide: FormService, useClass: MockFormService }
