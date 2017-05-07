@@ -3,7 +3,7 @@ import { inject } from "@angular/core/testing";
 import { FormListComponent } from "./form-list.component";
 import { FormService } from "../../services/form.service";
 import { Router } from "@angular/router";
-
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 class MockRouter {
     navigateByUrl(url: string) { return url; }
@@ -20,6 +20,7 @@ describe('Component: FormListComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
+            schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
             declarations: [FormListComponent],
             providers: [
                 { provide: Router, useClass: MockRouter },
